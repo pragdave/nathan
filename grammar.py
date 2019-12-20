@@ -11,14 +11,21 @@ robolang =
   command+
 
 command =
-      motion
-  /   turn
+      count? motion
+  /   count? turn
+  /   objectmanip
+  /   count? "[" robolang "]"
+
+count = r'[0-9]+'
 
 motion =
   "F"
 
 turn =
   "R" / "L"
+
+objectmanip =
+  "P" / "D"
 """
 
 parser = ParserPEG(grammar, "start", debug=False, reduce_tree=False)

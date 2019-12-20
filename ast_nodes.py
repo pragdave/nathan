@@ -1,9 +1,10 @@
 class BlockNode:
-    def __init__(self, commands):
+    def __init__(self, count, commands):
+        self.count = count
         self.commands = commands
 
     def accept(self, visitor):
-        visitor.evaluate_block(self.commands)
+        visitor.evaluate_block(self.count, self.commands)
 
 
 class ForwardNode:
@@ -23,8 +24,16 @@ class TurnNode:
 
 
 class CommandNode:
-    def __init__(self, command):
+    def __init__(self, count, command):
+        self.count = count
         self.command = command
 
     def accept(self, visitor):
-        visitor.evaluate_command(self.command)
+        visitor.evaluate_command(self.command, self.count)
+
+class ObjManipNode:
+    def __init__(self, manip):
+        self.manip = manip
+
+    def accept(self, visitor):
+        visitor.evaluate_objmanip(self.manip)
