@@ -7,14 +7,15 @@ class Interpreter:
         self.direction = [1, 0]
         self.holding = []
 
-    def evaluate_block(self, commands):
-        for cmd in commands:
-            cmd.accept(self)
+    def evaluate_block(self, count, commands):
+        for cmdcountiter in range(0, int(count)):
+            for cmd in commands:
+                cmd.accept(self)
 
     def evaluate_command(self, command, count):
         #using this count, iterate through the command "count" number of times
         #ie: 3F calls "F" three times
-        for cmdcountiter in range(0,int(count)):
+        for cmdcountiter in range(0, int(count)):
             command.accept(self)
 
     def evaluate_forward(self):
