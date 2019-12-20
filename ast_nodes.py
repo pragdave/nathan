@@ -24,12 +24,12 @@ class TurnNode:
 
 
 class CommandNode:
-    def __init__(self, count, commands):
+    def __init__(self, count, command):
         self.count = count
-        self.commands = commands
+        self.command = command
 
     def accept(self, visitor):
-        visitor.evaluate_command(self.commands, self.count)
+        visitor.evaluate_command(self.command, self.count)
 
 class ObjManipNode:
     def __init__(self, manip):

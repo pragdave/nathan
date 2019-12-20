@@ -8,6 +8,8 @@ class Interpreter:
         self.holding = []
 
     def evaluate_block(self, count, commands):
+        #using this count, interate through each command in "commands" list
+        #ie: 3[FR] calls the sequence "FR" three times
         for cmdcountiter in range(0, int(count)):
             for cmd in commands:
                 cmd.accept(self)
@@ -46,7 +48,7 @@ class Interpreter:
         self.trace(manip)   
 
 
-    #function that uses the logger to print values- do not touch
+    #function that uses the logger to print values that he wrote- do not touch
     def trace(self, action):
         self.logger(
           action,

@@ -33,4 +33,4 @@ parser = ParserPEG(grammar, "start", debug=False, reduce_tree=False)
 
 def parse(source):
     parse_tree = parser.parse(source)
-    return visit_parse_tree(parse_tree, ASTBuilder(debug=True))
+    return visit_parse_tree(parse_tree, ASTBuilder(debug=False))
