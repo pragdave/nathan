@@ -14,7 +14,7 @@ command =
       count? motion
   /   count? turn
   /   objectmanip
-  /   count? "[" motion|turn|objectmanip "]"
+  
 
 count = r'[0-9]+'
 
