@@ -14,7 +14,7 @@ class Interpreter:
     def evaluate_command(self, command, count):
         #using this count, iterate through the command "count" number of times
         #ie: 3F calls "F" three times
-        for cmdnumiter in range(0,int(count)):
+        for cmdcountiter in range(0,int(count)):
             command.accept(self)
 
     def evaluate_forward(self):

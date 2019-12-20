@@ -14,7 +14,12 @@ command =
       count? motion
   /   count? turn
   /   objectmanip
-  
+  /   count? "[" (commandlist)+ "]"
+
+  commandlist =
+      motion
+  /   turn
+  /   objectmanip
 
 count = r'[0-9]+'
 
@@ -28,7 +33,7 @@ objectmanip =
   "P" / "D"
 """
 
-parser = ParserPEG(grammar, "start", debug=False, reduce_tree=False)
+parser = ParserPEG(grammar, "start", debug=True, reduce_tree=False)
 
 
 def parse(source):
