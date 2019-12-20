@@ -28,3 +28,10 @@ class CommandNode:
 
     def accept(self, visitor):
         visitor.evaluate_command(self.command)
+
+class ObjManipNode:
+    def __init__(self, manip):
+        self.manip = manip
+
+    def accept(self, visitor):
+        visitor.evaluate_objmanip(self.manip)

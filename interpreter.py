@@ -29,6 +29,16 @@ class Interpreter:
         self.direction = [x, y]
         self.trace(direction)
 
+    def evaluate_objmanip(self, manip):
+        currentX, currentY = self.x, self.y
+        action = manip
+        if action == "P":
+            self.holding.append([currentX, currentY])
+        elif action == "D":
+            self.holding.pop()
+
+        self.trace(manip)   
+
     def trace(self, action):
         self.logger(
           action,

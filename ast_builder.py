@@ -14,3 +14,6 @@ class ASTBuilder(PTNodeVisitor):
 
     def visit_turn(self, node, children):
         return TurnNode(children[0])
+
+    def visit_objectmanip(self, node, children):
+        return ObjManipNode(children[0])

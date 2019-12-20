@@ -13,12 +13,16 @@ robolang =
 command =
       motion
   /   turn
+  /   objectmanip
 
 motion =
   "F"
 
 turn =
   "R" / "L"
+
+objectmanip =
+  "P" / "D"
 """
 
 parser = ParserPEG(grammar, "start", debug=False, reduce_tree=False)
