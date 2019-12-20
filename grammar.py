@@ -11,9 +11,12 @@ robolang =
   command+
 
 command =
-      motion
-  /   turn
+      count? motion
+  /   count? turn
   /   objectmanip
+  /   count? "[" motion|turn|objectmanip "]"
+
+count = r'[0-9]+'
 
 motion =
   "F"
@@ -30,4 +33,4 @@ parser = ParserPEG(grammar, "start", debug=False, reduce_tree=False)
 
 def parse(source):
     parse_tree = parser.parse(source)
-    return visit_parse_tree(parse_tree, ASTBuilder(debug=False))
+    return visit_parse_tree(parse_tree, ASTBuilder(debug=True))

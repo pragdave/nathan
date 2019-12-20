@@ -10,4 +10,4 @@ def parse_and_run(src, logger):
     ast.accept(Interpreter(logger))
 
 if __name__ == '__main__':
-    parse_and_run("RLPFDF", logger)
+    parse_and_run("3R", logger)

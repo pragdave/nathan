@@ -11,8 +11,11 @@ class Interpreter:
         for cmd in commands:
             cmd.accept(self)
 
-    def evaluate_command(self, command):
-        command.accept(self)
+    def evaluate_command(self, command, count):
+        #using this count, iterate through the command "count" number of times
+        #ie: 3F calls "F" three times
+        for cmdnumiter in range(0,int(count)):
+            command.accept(self)
 
     def evaluate_forward(self):
         self.x += self.direction[0]
@@ -30,7 +33,9 @@ class Interpreter:
         self.trace(direction)
 
     def evaluate_objmanip(self, manip):
+        #get current X/Y position
         currentX, currentY = self.x, self.y
+        #pick up/drop off object based on given command at this X/Y position
         action = manip
         if action == "P":
             self.holding.append([currentX, currentY])
@@ -39,6 +44,8 @@ class Interpreter:
 
         self.trace(manip)   
 
+
+    #function that uses the logger to print values- do not touch
     def trace(self, action):
         self.logger(
           action,
